@@ -4,9 +4,10 @@ Typography
 
 body,
 button,
-input,
-select,
+/* input, */
+/* select, */
 textarea {
+
     font-family: 'Source Sans Pro', 'Helvetica', 'Arial', sans-serif;
     font-size: 18px;
     line-height: 1.5;
@@ -21,31 +22,31 @@ h6 {
     clear: both;
 }
 
-p {
+/* p {
     margin-bottom: 1.5em;
-}
+} */
 
-b,
+/* b,
 strong {
     font-weight: bold;
-}
+} */
 
-dfn,
+/* dfn,
 cite,
 em,
 i {
     font-style: italic;
-}
+} */
 
-blockquote {
+/* blockquote {
     margin: 0 1.5em;
-}
+} */
 
-address {
+/* address {
     margin: 0 0 1.5em;
-}
+} */
 
-pre {
+/* pre {
     background: #eee;
     font-family: "Courier 10 Pitch", Courier, monospace;
     font-size: 15px;
@@ -55,9 +56,9 @@ pre {
     max-width: 100%;
     overflow: auto;
     padding: 1.6em;
-}
+} */
 
-code,
+/* code,
 kbd,
 tt,
 var {
@@ -99,7 +100,7 @@ small {
 
 big {
     font-size: 125%;
-}
+} */
 
 /*--------------------------------------------------------------
 Layout
@@ -111,18 +112,23 @@ body {
 
 .masthead {
     padding: 1em 4em;
-    background-color: #0D1B2E;
+    background-color: #607196;
     color: white;
 }
 
+
 .masthead h1 {
     text-align: center;
+    font-size: 3em;
 }
 
 .intro {
     padding: 2em 2em;
     color: #ffffff;
-    background: #429890;
+    background: #FF7B9C;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
 }
 
 
@@ -138,19 +144,21 @@ body {
 }
 
 .test-wrapper {
-    border: 10px solid grey;
+    border: 10px solid #BABFD1;
     border-radius: 10px;
 }
 
 #origin-text {
     margin: 1em 0;
     padding: 1em 1em 0;
-    background-color: #ededed;
+    border-radius: 10px;
+    background-color: #FFC759;
 }
 
 #origin-text p {
     margin: 0;
     padding-bottom: 1em;
+    font-weight: bold;
 }
 
 .test-wrapper {
@@ -171,18 +179,20 @@ body {
 .timer {
     font-size: 3em;
     font-weight: bold;
+    color: #607196;
 }
 
 #reset {
     padding: .5em 1em;
     font-size: 1.2em;
     font-weight: bold;
-    color: #E95D0F;
+    border-radius: 40px;
+    color: #FF7B9C;
     background: white;
-    border: 10px solid #E95D0F;
+    border: 10px solid #FF7B9C;
 }
 
 #reset:hover {
     color: white;
-    background-color: #E95D0F;
+    background-color: #FF7B9C;
 }
