@@ -1,4 +1,4 @@
-# Typing speed test.
+## Typing speed test.
 Web application in HTML/CSS/JavaScript.
 
 Based on material covered in online tutorial, 
