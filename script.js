@@ -1,14 +1,19 @@
+// Setting const values refered to HTML elements. 
+// Typing window boarding, Typing window, Text to repeat, Button element, Timer
+
 const testWrapper = document.querySelector(".test-wrapper");
 const testArea = document.querySelector("#test-area");
 const originText = document.querySelector("#origin-text p").innerHTML;
 const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
 
+// Setting variables needed for time measurement.
+
 var timer = [0, 0, 0, 0];
 var interval;
 var timerRunning = false;
 
-// Add leading zero to numbers 9 or below (purely for aesthetics):
+// Add leading zero to numbers 9 or below (for aesthetics).
 function leadingZero(time) {
   if (time <= 9) {
     time = "0" + time;
@@ -22,16 +27,20 @@ function runTimer() {
   theTimer.innerHTML = currentTime;
   timer[3]++;
 
-  timer[0] = Math.floor((timer[3] / 100) / 60);
-  timer[1] = Math.floor((timer[3] / 100) - (timer[0] * 60));
-  timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
   // floor is used to not get any decimals
+  timer[0] = Math.floor((timer[3] / 100) / 60); // Minutes
+  timer[1] = Math.floor((timer[3] / 100) - (timer[0] * 60)); // Seconds
+  timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000)); // Miliseconds
+
 }
 
-// Match the text entered with the provided text on the page:
+// Match the text entered with the provided text on the page.
 function spellCheck() {
   let textEntered = testArea.value;
-  let originTextMatch = originText.substring(0, textEntered.length); //substring treats string as an array (where to start, how many charakters we want to return)
+
+  // Substring treats string as an array (where to start, how many charakters we want to return). Give characters, which refers to typed.
+  let originTextMatch = originText.substring(0, textEntered.length);
+
 
   if (textEntered == originText) {
     clearInterval(interval);
@@ -46,7 +55,7 @@ function spellCheck() {
 
 }
 
-// Start the timer:
+// Start the timer. It starts when 1st letter is typed and timer is not already running.
 function start() {
   let textEnterdLength = testArea.value.length;
   if (textEnterdLength === 0 && !timerRunning) {
@@ -68,7 +77,7 @@ function reset() {
   testWrapper.style.borderColor = "#BABFD1";
 }
 
-// Event listeners for keyboard input and the reset button:
+// Event listeners to operate application.
 testArea.addEventListener("keypress", start, false);
 testArea.addEventListener("keyup", spellCheck, false);
 resetButton.addEventListener("click", reset, false);
