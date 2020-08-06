@@ -10,6 +10,14 @@ textarea {
     font-size: 18px;
     line-height: 1.5;
 }
+h2 {
+    margin: 0.8em;
+}
+
+#wish {
+    font-size: 25px;
+
+}
 
 
 /*--------------------------------------------------------------
@@ -61,6 +69,7 @@ body {
 #origin-text {
     margin: 1em 0;
     padding: 1em 1em 0;
+    text-align: justify;
     border-radius: 10px;
     background-color: #FFC759;
 }
