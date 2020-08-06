@@ -6,12 +6,14 @@ const testArea = document.querySelector("#test-area");
 const originText = document.querySelector("#origin-text p").innerHTML;
 const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
+const mistakeCounter = document.querySelector(".mistakes");
 
 // Setting variables needed for time measurement.
 
 var timer = [0, 0, 0, 0];
 var interval;
 var timerRunning = false;
+var mistakes = 0;
 
 // Add leading zero to numbers 9 or below (for aesthetics).
 function leadingZero(time) {
@@ -45,11 +47,14 @@ function spellCheck() {
   if (textEntered == originText) {
     clearInterval(interval);
     testWrapper.style.borderColor = "#04E762";
+    console.log(mistakes);
   } else {
     if (textEntered == originTextMatch) {
       testWrapper.style.borderColor = "#00A896";
     } else {
       testWrapper.style.borderColor = "#960200"
+      mistakes++;
+      mistakeCounter.innerHTML = mistakes;
     }
   }
 
@@ -62,7 +67,7 @@ function start() {
     timerRunning = true;
     interval = setInterval(runTimer, 10);
   }
-  console.log(textEnterdLength);
+  //console.log(textEnterdLength);
 }
 
 // Reset everything:
@@ -71,10 +76,12 @@ function reset() {
   interval = null;
   timer = [0, 0, 0, 0];
   timerRunning = false;
+  mistakes = 0;
 
   testArea.value = "";
   theTimer.innerHTML = "00:00:00";
   testWrapper.style.borderColor = "#BABFD1";
+  mistakeCounter.innerHTML = "0";
 }
 
 // Event listeners to operate application.

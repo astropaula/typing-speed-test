@@ -100,6 +100,11 @@ body {
     font-weight: bold;
     color: #607196;
 }
+.mistakes {
+    font-size: 3em;
+    font-weight: bold;
+    color: #960200;
+}
 
 #reset {
     padding: .5em 1em;
