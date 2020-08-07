@@ -95,22 +95,44 @@ body {
     flex-wrap: wrap;
 }
 
+.meta {
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 4fr 0.3fr 1fr;
+    grid-template-rows: auto auto;
+    justify-items: stretch;
+}
+
 .timer {
+    grid-row: 1/2;
     font-size: 3em;
     font-weight: bold;
     color: #607196;
 }
+
 .mistakes {
+    grid-column: 2/3;
+    justify-self: center;
+}
+
+.mistakes, #error {
     font-size: 3em;
     font-weight: bold;
     color: #960200;
+    }
+
+#error {
+    font-size: 1.3em;
+    margin-bottom: 25%;
+    justify-self: right;
 }
 
 #reset {
+    grid-column: 1/4;
     padding: .5em 1em;
     font-size: 1.2em;
     font-weight: bold;
-    border-radius: 40px;
+    border-radius: 50px;
     color: #FF7B9C;
     background: white;
     border: 10px solid #FF7B9C;
