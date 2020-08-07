@@ -14,6 +14,7 @@ var timer = [0, 0, 0, 0];
 var interval;
 var timerRunning = false;
 var mistakes = 0;
+var key;
 
 // Add leading zero to numbers 9 or below (for aesthetics).
 function leadingZero(time) {
@@ -39,7 +40,6 @@ function runTimer() {
 // Match the text entered with the provided text on the page.
 function spellCheck() {
   let textEntered = testArea.value;
-
   // Substring treats string as an array (where to start, how many charakters we want to return). Give characters, which refers to typed.
   let originTextMatch = originText.substring(0, textEntered.length);
 
@@ -53,7 +53,10 @@ function spellCheck() {
       testWrapper.style.borderColor = "#00A896";
     } else {
       testWrapper.style.borderColor = "#960200"
-      mistakes++;
+      if (!(event.keyCode == 8)) {
+        mistakes++;
+      }
+      //mistakes++;
       mistakeCounter.innerHTML = mistakes;
     }
   }
@@ -67,6 +70,7 @@ function start() {
     timerRunning = true;
     interval = setInterval(runTimer, 10);
   }
+  // key = event.keyCode;
   //console.log(textEnterdLength);
 }
 
