@@ -7,6 +7,7 @@ const originText = document.querySelector("#origin-text p").innerHTML;
 const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
 const mistakeCounter = document.querySelector(".mistakes");
+const typeSpeed = document.querySelector(".count");
 
 // Setting variables needed for time measurement.
 
@@ -15,6 +16,7 @@ var interval;
 var timerRunning = false;
 var mistakes = 0;
 var key;
+var speed;
 
 // Add leading zero to numbers 9 or below (for aesthetics).
 function leadingZero(time) {
@@ -47,7 +49,7 @@ function spellCheck() {
   if (textEntered == originText) {
     clearInterval(interval);
     testWrapper.style.borderColor = "#04E762";
-    console.log(mistakes);
+    speedCount();
   } else {
     if (textEntered == originTextMatch) {
       testWrapper.style.borderColor = "#00A896";
@@ -56,7 +58,6 @@ function spellCheck() {
       if (!(event.keyCode == 8)) {
         mistakes++;
       }
-      //mistakes++;
       mistakeCounter.innerHTML = mistakes;
     }
   }
@@ -86,6 +87,15 @@ function reset() {
   theTimer.innerHTML = "00:00:00";
   testWrapper.style.borderColor = "#BABFD1";
   mistakeCounter.innerHTML = "0";
+}
+
+function speedCount() {
+  let text = originText.split(' ');
+  console.log(text.length);
+  let min = timer[3] / 6000;
+  speed = text.length / min;
+  typeSpeed.innerHTML = speed.toFixed(1);
+  //console.log(speed.toFixed(1));
 }
 
 // Event listeners to operate application.

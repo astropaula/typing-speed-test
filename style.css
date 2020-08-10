@@ -18,8 +18,6 @@ h2 {
     font-size: 25px;
 
 }
-
-
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
@@ -93,7 +91,7 @@ body {
     margin-top: 1em;
     display: grid;
     grid-template-columns: 4fr 0.3fr 1fr;
-    grid-template-rows: auto auto;
+    grid-template-rows: auto;
 }
 
 .timer {
@@ -133,4 +131,17 @@ body {
 #reset:hover {
     color: white;
     background-color: #FF7B9C;
+}
+
+.speed {
+    grid-column: 1/4;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #607196;
+}
+.count {
+    justify-content: flex-end;
 }
