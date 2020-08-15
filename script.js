@@ -8,6 +8,8 @@ const resetButton = document.querySelector("#reset");
 const theTimer = document.querySelector(".timer");
 const mistakeCounter = document.querySelector(".mistakes");
 const typeSpeed = document.querySelector(".count");
+const highScores = document.querySelector(".board");
+const zeroButton = document.querySelector("#delete");
 
 // Setting variables needed for time measurement.
 
@@ -45,11 +47,11 @@ function spellCheck() {
   // Substring treats string as an array (where to start, how many charakters we want to return). Give characters, which refers to typed.
   let originTextMatch = originText.substring(0, textEntered.length);
 
-
   if (textEntered == originText) {
     clearInterval(interval);
     testWrapper.style.borderColor = "#04E762";
     speedCount();
+    updateScore();
   } else {
     if (textEntered == originTextMatch) {
       testWrapper.style.borderColor = "#00A896";
@@ -71,8 +73,6 @@ function start() {
     timerRunning = true;
     interval = setInterval(runTimer, 10);
   }
-  // key = event.keyCode;
-  //console.log(textEnterdLength);
 }
 
 // Reset everything:
@@ -89,16 +89,87 @@ function reset() {
   mistakeCounter.innerHTML = "0";
 }
 
+// Clear High score board.
+function resetBoard() {
+  localStorage.clear();
+  highScores.innerHTML = '';
+}
+
+// Calculate average speed of typing, during test.
 function speedCount() {
   let text = originText.split(' ');
-  console.log(text.length);
   let min = timer[3] / 6000;
   speed = text.length / min;
   typeSpeed.innerHTML = speed.toFixed(1);
-  //console.log(speed.toFixed(1));
+}
+
+function highScore() {
+  if (typeof (Storage) !== "undefined") {
+    let scores = false;
+    if (localStorage["board"]) {
+      //highScores.style.display = "block";
+      highScores.innerHTML = '';
+      scores = JSON.parse(localStorage["board"]);
+      console.log("scores" + scores);
+      scores = scores.sort(function (a, b) { return parseInt(a) - parseInt(b) });
+
+      for (let i = 0; i < 10; i++) {
+        let s = scores[i];
+        let fragment = document.createElement('li');
+        fragment.innerHTML = (typeof (s) != "undefined" ? s : "");
+        highScores.appendChild(fragment);
+      }
+    }
+  }
+  else {
+    highScores.style.display = "none";
+  }
+}
+
+function updateScore() {
+  if (typeof (Storage) !== "undefined") {
+
+    let current = parseInt(timer[3] / 100);
+    console.log(current);
+    let result = false;
+
+    if (localStorage["board"]) {
+      console.log("local Storage");
+      console.log(localStorage["board"]);
+
+      result = JSON.parse(localStorage["board"]);
+      console.log("wyniki z JSONa");
+      console.log(result);
+      result = result.sort(function (a, b) { return parseInt(a) - parseInt(b) });
+
+      for (let i = 0; i < 10; i++) {
+        let s = parseInt(result[i]);
+        let val = (!isNaN(s) ? s : 0);
+        if (current > val) {
+          val = current;
+          result.splice(i, 0, parseInt(current));
+          break;
+        }
+      }
+      result.length = 10;
+      localStorage["board"] = JSON.stringify(result);
+
+    }
+    else {
+      result = new Array();
+      console.log("nowa tablica");
+      console.log(result);
+      result[0] = current;
+      console.log("upgraded");
+      console.log(result);
+      localStorage["board"] = JSON.stringify(result);
+    }
+    highScore();
+  }
 }
 
 // Event listeners to operate application.
 testArea.addEventListener("keypress", start, false);
 testArea.addEventListener("keyup", spellCheck, false);
 resetButton.addEventListener("click", reset, false);
+zeroButton.addEventListener("click", resetBoard, false);
