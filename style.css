@@ -64,6 +64,13 @@ body {
     border-radius: 10px;
 }
 
+.edit-wrapper {
+    border: 10px solid #BABFD1;
+    border-radius: 10px;
+}
+
+
+
 #origin-text {
     margin: 1em 0;
     padding: 1em 1em 0;
@@ -83,6 +90,14 @@ body {
 }
 
 .test-wrapper textarea {
+    flex: 1;
+}
+
+.edit-wrapper {
+    display: flex;
+}
+
+.edit-wrapper textarea {
     flex: 1;
 }
 
@@ -130,6 +145,12 @@ body {
 #reset:hover {
     color: white;
     background-color: #FF7B9C;
+}
+
+.enter {
+    width: 550px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 

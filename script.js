@@ -2,14 +2,17 @@
 
 const testWrapper = document.querySelector(".test-wrapper");
 const testArea = document.querySelector("#test-area");
-const originText = document.querySelector("#origin-text p").innerHTML;
-const resetButton = document.querySelector("#reset");
+//const originText = document.querySelector("#origin-text p").innerHTML;
+const resetButton = document.querySelector(".reset");
 const theTimer = document.querySelector(".timer");
 const mistakeCounter = document.querySelector(".mistakes");
 const typeSpeed = document.querySelector(".count");
 const bestScores = document.querySelector(".board");
 const saveButton = document.querySelector(".zero");
 const zeroButton = document.querySelector("#delete");
+const textButton = document.querySelector(".enter");
+const testText = document.querySelector("#origin-text p")
+const updateArea = document.querySelector("#update");
 
 // Setting variables needed for time measurement.
 
@@ -19,6 +22,7 @@ var timerRunning = false;
 var mistakes = 0;
 var key;
 var speed;
+var originText = document.querySelector("#origin-text p").innerHTML;
 
 // Add leading zero to numbers 9 or below (for aesthetics).
 function leadingZero(time) {
@@ -144,10 +148,16 @@ function updateScore() {
     bestScores.appendChild(fragment);
   }
 }
-
+function enterText() {
+  //console.log("clicked the button");
+  testText.innerHTML = updateArea.value;
+  originText = updateArea.value;
+  console.log(originText);
+}
 // Event listeners to operate application.
 testArea.addEventListener("keypress", start, false);
 testArea.addEventListener("keyup", spellCheck, false);
 resetButton.addEventListener("click", reset, false);
 zeroButton.addEventListener("click", resetBoard, false);
 saveButton.addEventListener("click", updateScore, false);
+textButton.addEventListener("click", enterText, false);
