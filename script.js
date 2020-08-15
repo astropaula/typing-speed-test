@@ -1,5 +1,4 @@
 // Setting const values refered to HTML elements. 
-// Typing window boarding, Typing window, Text to repeat, Button element, Timer
 
 const testWrapper = document.querySelector(".test-wrapper");
 const testArea = document.querySelector("#test-area");
@@ -35,7 +34,7 @@ function runTimer() {
   theTimer.innerHTML = currentTime;
   timer[3]++;
 
-  // floor is used to not get any decimals
+  // Floor is used to not get any decimals.
   timer[0] = Math.floor((timer[3] / 100) / 60); // Minutes
   timer[1] = Math.floor((timer[3] / 100) - (timer[0] * 60)); // Seconds
   timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000)); // Miliseconds
@@ -46,7 +45,7 @@ function runTimer() {
 function spellCheck() {
   let textEntered = testArea.value;
 
-  // Substring treats string as an array (where to start, how many charakters we want to return). Give characters, which refers to typed.
+  // Substring treats string as an array (where to start, how many charakters we want to return). Gives characters, which refers to typed ones.
   let originTextMatch = originText.substring(0, textEntered.length);
 
   if (textEntered == originText) {
@@ -89,7 +88,6 @@ function reset() {
   theTimer.innerHTML = "00:00:00";
   testWrapper.style.borderColor = "#BABFD1";
   mistakeCounter.innerHTML = "0";
-  console.log("CALLING THE FUNCTION");
 }
 
 // Clear High score board.
@@ -127,8 +125,6 @@ function updateScore() {
         break;
       }
     }
-
-    scores.length = 10;
     localStorage["high-scores"] = JSON.stringify(scores);
 
   } else {
