@@ -8,3 +8,4 @@ Added features:
 * Error counter
 * Average speed measurement
 * High score board
+* Option to change the text to test
