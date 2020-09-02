@@ -1,25 +1,16 @@
 # Typing speed test
-Web app that measure typing time and average speed of the user
+Webapp that measures typing time and average type speed of the user.
 
 ## Table of content
-* General info
 * Technologies
 * Usage
-
-# General info
-Based on material covered in online tutorial, 
-developed with extra features and some changes in graphic design.
-
-Added features:
-* Error counter
-* Average speed measurement
-* High score board
-* Option to change the text to test
+* Description
+* Inspiration
 
 # Technologies
-* HTML5
-* CSS3
-* JavaScript
+* HTML 5
+* CSS 3
+* JavaScript ES6
 
 # Usage
 
@@ -27,8 +18,24 @@ Added features:
 * Start typing in test area
 * Check your typing time, number of errors and average typing speed
 * Save you result in your brownser
-
 * Is possible to customize test text, just type your own and click the confirm button
+* https://astropaula.github.io/typing-speed-test
+
+# Description
+
+Main aim of the project was to practise `handling events` in the DOM with `javascript`, <br>
+and propose extra feature to make app more attractive to the user.
+
+Added features:
+* Error counter
+* Average speed measurement
+* High score board
+* Option to change the text to test
+
+# Inspiration
+
+Core concept of the project is based on material covered in Linkedin tutorial by Morten Rand-Hendriksen.
+
 
 
 
