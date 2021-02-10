@@ -19,7 +19,7 @@ Webapp that measures typing time and average type speed of the user.
 * Check your typing time, number of errors and average typing speed
 * Save you result in your brownser
 * Is possible to customize test text, just type your own and click the confirm button
-* https://astropaula.github.io/typing-speed-test
+* https://paulawojciechowska.github.io/typing-speed-test
 
 # Description
 
